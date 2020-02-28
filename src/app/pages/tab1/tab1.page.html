@@ -1,4 +1,11 @@
 
-<ion-content [fullscreen]="true">
+<ion-content >
  
+    <ion-slides [options]="swiperOpts">
+        <ion-slide>
+            <ion-button expand= "full" full= "outline" size="large" shape="round" (click)="scan()">
+                ScanCode
+            </ion-button>
+        </ion-slide>
+    </ion-slides>
 </ion-content>
