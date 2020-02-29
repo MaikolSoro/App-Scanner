@@ -7,6 +7,7 @@ export class Registro {
     public created: Date;
 
     constructor(format: string , text: string) {
+
         this.format =  format;
         this.text = text;
         this.created = new Date();
@@ -15,26 +16,26 @@ export class Registro {
     }
 
     private determinarTipo() {
-    const inicioTexto = this.text.substr(0, 4);
-    console.log('TIPO', inicioTexto);
-    
 
-    switch ( inicioTexto) {
+        const inicioTexto = this.text.substr(0, 4);
+        console.log('TIPO', inicioTexto );
 
-        case 'http':
-            this.type = 'http';
-            this.icon = 'globe';
-            break;
+        switch ( inicioTexto ) {
 
-        case 'geo':
-            this.type = 'geo';
-            this.icon = 'pin';
-            break;
-        
+            case 'http':
+                this.type = 'http';
+                this.icon = 'globe-outline';
+                break;
+
+            case 'geo:':
+                this.type = 'geo';
+                this.icon = 'pin-outline';
+                break;
+
             default:
-                this.type = 'No reconcido';
-                this.icon = 'create';
-    }
-    }
+                this.type = 'No reconocido';
+                this.icon = 'create-outline';
+        }
 
+    }
 }

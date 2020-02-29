@@ -4,16 +4,22 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MapaPageRoutingModule } from './mapa-routing.module';
-
 import { MapaPage } from './mapa.page';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {
+    path: '',
+    component: MapaPage
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    MapaPageRoutingModule
+    RouterModule.forChild(routes)
   ],
   declarations: [MapaPage]
 })

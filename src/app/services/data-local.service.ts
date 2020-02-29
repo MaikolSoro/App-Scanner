@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Registro } from '../models/registro.model';
 import { Storage } from '@ionic/storage';
-import { async } from '@angular/core/testing';
 import { NavController } from '@ionic/angular';
 import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 @Injectable({
@@ -11,7 +10,9 @@ export class DataLocalService {
 
   guardados: Registro[] = [];
 
-   constructor(private storage: Storage, private navCtrl: NavController, private iab: InAppBrowser) {
+   constructor(private storage: Storage, 
+               private navCtrl: NavController, 
+               private iab: InAppBrowser) {
         this.cargarStorage();
    }
 
@@ -34,18 +35,19 @@ export class DataLocalService {
 
   // abro el registro en el navegador
   abrirRegistro(registro: Registro) {
+
   this.navCtrl.navigateForward('/tabs/tab2');
 
-  switch (registro.type) {
-    
+  switch ( registro.type ) {
+
     case 'http':
-      // abrir en el navegador web
-      this.iab.create(registro.text, '_system');
+      this.iab.create( registro.text, '_system' );
       break;
+
     case 'geo':
-      // abrir en el navegador web
-      this.navCtrl.navigateForward(`/tabs/tab2/mapa/${registro.text}`);
+      this.navCtrl.navigateForward(`/tabs/tab2/mapa/${ registro.text }`);
       break;
+
   }
   }
 }
