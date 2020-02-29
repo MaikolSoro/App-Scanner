@@ -29,7 +29,8 @@ export class Tab1Page {
       }
      }).catch(err => {
          console.log('Error', err);
-         this.dataLocal.guardarRegistro('QRCode' , 'http://fernando-herrera.com');
+        //  this.dataLocal.guardarRegistro('QRCode' , 'http://google.com');
+         this.dataLocal.guardarRegistro('QRCode' , 'geo:40.73151796986687,-74.06087294062502');
 
      });
   }
