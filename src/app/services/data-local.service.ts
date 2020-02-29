@@ -31,7 +31,7 @@ export class DataLocalService {
 
     this.abrirRegistro(nuevoRegistro);
   }
-  
+
   // abro el registro en el navegador
   abrirRegistro(registro: Registro) {
   this.navCtrl.navigateForward('/tabs/tab2');
@@ -41,6 +41,10 @@ export class DataLocalService {
     case 'http':
       // abrir en el navegador web
       this.iab.create(registro.text, '_system');
+      break;
+    case 'geo':
+      // abrir en el navegador web
+      this.navCtrl.navigateForward(`/tabs/tab2/mapa/${registro.text}`);
       break;
   }
   }
